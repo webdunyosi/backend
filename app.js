@@ -1,3 +1,5 @@
+import "dotenv/config"
+
 import express from "express"
 import mongoose from "mongoose"
 import postModel from "./models/post.model.js"
@@ -37,9 +39,8 @@ app.put("/:id", (req, res) => {
   res.json({ id, body })
 })
 
-const DB_URL =
-  "mongodb+srv://AlimardonToshpulatov:*alimardoncoder001*@cluster0.0xd1d5u.mongodb.net/?appName=Cluster0"
-const PORT = 8080
+const PORT = process.env.PORT || 8080
+const DB_URL = process.env.DB_URL
 
 const bootstrap = async () => {
   try {
